@@ -28,7 +28,6 @@ public class GetContentAsync extends AsyncTask<String , Void , ArrayList<Questio
 
     public GetContentAsync(Activity activity){
         this.activity = activity;
-
     }
 
     @Override
@@ -37,48 +36,44 @@ public class GetContentAsync extends AsyncTask<String , Void , ArrayList<Questio
         int flag;
 
         HttpURLConnection connection;
-        try{
+        try {
+            // establish connection
             URL url = new URL(params[0]);
             connection = (HttpURLConnection) url.openConnection();
-
             connection.connect();
+            // get result of connection
             if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 result = IOUtils.toString(connection.getInputStream(), "UTF8");
             }
 
+            // create array of questions
             allQuestions = result.split("\n");
 
-            for (int i =0 ;i<allQuestions.length; i++){
-                ArrayList<String> answers= new ArrayList<>();
-                flag = 0;
+            for (int i = 0 ;i<allQuestions.length; i++){
+                // create array with the elements of a question
+                ArrayList<String> answers = new ArrayList<>();
                 ArrayList<String> questionContent = new ArrayList<String>(Arrays.asList(allQuestions[i].split(";")));
+                flag = 0;
+                // create and populate question object
                 Question question = new Question();
                 question.questionNumber = Integer.parseInt(questionContent.get(0));
                 question.questionText = questionContent.get(1);
                 question.image = questionContent.get(2);
-                for (int j=3; flag<1; j++) {
+                // add possible answers & correct answer
+                for (int j=3; j < questionContent.size() - 1; j++) {
                     buffer = questionContent.get(j);
-                    try {
-                        int ansBuf = Integer.parseInt(buffer);
-                        question.answer = ansBuf;
-                        flag++;
-                    } catch (NumberFormatException e) {
-                        answers.add(buffer);
-                    }
+                    answers.add(buffer);
                 }
+                String ans = questionContent.get(questionContent.size()-1);
+                question.setAnswer(Integer.valueOf(ans));
                 question.setAnswers(answers);
                 questions.add(question);
-
-                //answers.clear();
             }
             return questions;
-
-
         }
         catch (IOException e) {
             e.printStackTrace();
         }
-
         return questions;
     }
 
@@ -87,7 +82,7 @@ public class GetContentAsync extends AsyncTask<String , Void , ArrayList<Questio
         super.onPostExecute(questions);
         ((ProgressBar)activity.findViewById(R.id.progressBar)).setVisibility(View.INVISIBLE);
         ((ImageView)activity.findViewById(R.id.triviaImage)).setVisibility(View.VISIBLE);
-        ((TextView)activity.findViewById(R.id.readyView)).setVisibility(View.VISIBLE);
+        ((TextView)activity.findViewById(R.id.readyView)).setText("Trivia Ready");
         ((Button)activity.findViewById(R.id.startButton)).setEnabled(true);
     }
 }

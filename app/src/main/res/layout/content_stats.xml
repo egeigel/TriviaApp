@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.edward.triviaapp.StatsActivity"
+    tools:showIn="@layout/activity_stats"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <Button
+        android:id="@+id/quitBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/quitText"
+        android:layout_marginLeft="12dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="12dp" />
+
+    <Button
+        android:id="@+id/tryAgainBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginRight="12dp"
+        android:text="@string/tryAgainText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="12dp" />
+
+    <ProgressBar
+        android:id="@+id/percentageBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="260dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:progressTint="@android:color/holo_green_light"
+        app:layout_constraintBottom_toBottomOf="@+id/percentageView"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/percentageView"
+        app:layout_constraintVertical_bias="0.444" />
+
+    <TextView
+        android:id="@+id/percentageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="89%"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="24dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/correctAnswersView"
+        android:layout_marginLeft="30dp" />
+
+    <TextView
+        android:id="@+id/correctAnswersView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/correctAnswersText"
+        android:textSize="18dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/trivaStatsView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/trivaStatsText"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="30dp"
+        app:layout_constraintHorizontal_bias="0.501"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:id="@+id/messageView"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
+        android:text="@string/messageText"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+</android.support.constraint.ConstraintLayout>

@@ -1,9 +1,15 @@
 <resources>
     <string name="app_name">TriviaApp</string>
     <string name="welcomeText">Welcome To\n Trivia App</string>
+    <string name="loadingText">Loading Trivia</string>
     <string name="readyText">Trivia Ready</string>
     <string name="startText">Start Trivia</string>
     <string name="exitText">Exit</string>
     <string name="nextText">Next</string>
     <string name="quitText">Quit</string>
+    <string name="title_activity_stats">StatsActivity</string>
+    <string name="tryAgainText">Try Again</string>
+    <string name="correctAnswersText">Correct Answers:</string>
+    <string name="trivaStatsText">Trivia Stats</string>
+    <string name="messageText">Try again and see if you can get all the correct answers!</string>
 </resources>
