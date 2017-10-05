@@ -54,7 +54,7 @@ public class GetImageAsync extends AsyncTask<String , Void , Void> {
         if (bitmap != null && imageView != null) {
             imageView.setImageBitmap(bitmap);
         }
-        ((ProgressBar)activity.findViewById(R.id.progressBar)).setVisibility(View.INVISIBLE);
+        ((ProgressBar)activity.findViewById(R.id.imageProgress)).setVisibility(View.INVISIBLE);
     }
 
 }

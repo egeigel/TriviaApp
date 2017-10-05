@@ -4,4 +4,6 @@
     <string name="readyText">Trivia Ready</string>
     <string name="startText">Start Trivia</string>
     <string name="exitText">Exit</string>
+    <string name="nextText">Next</string>
+    <string name="quitText">Quit</string>
 </resources>
